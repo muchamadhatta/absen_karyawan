@@ -19,12 +19,8 @@
                             <?php else: ?>
                                 <td><i class="fa fa-3x fa-<?= ($absen < 2) ? "warning text-warning" : "check-circle-o text-success" ?>"></i></td>
                                 <td><?= tgl_hari(date('d-m-Y')) ?></td>
-                                <td>
-                                    <a href="<?= base_url('absensi/absen/masuk') ?>" class="btn btn-primary btn-sm btn-fill"<?= ($absen == 1) ? 'disabled style="cursor:not-allowed"' : '' ?>>Absen Masuk</a>
-                                </td>
-                                <td>
-                                    <a href="<?= base_url('absensi/absen/pulang') ?>" class="btn btn-success btn-sm btn-fill"<?= ($absen !== 1 || $absen == 2) ? 'disabled style="cursor:not-allowed"' : '' ?>>Absen Pulang</a>
-                                </td>
+                                <td><a href="<?= base_url('absensi/absen/masuk') ?>" class="btn btn-primary btn-sm btn-fill"<?= ($absen == 1 || $absen == 2) ? 'disabled style="cursor:not-allowed"' : '' ?>>Absen Masuk</a></td>
+                                <td><a href="<?= base_url('absensi/absen/pulang') ?>" class="btn btn-danger btn-sm btn-fill " <?= ($absen !== 1 || $absen == 2) ? 'disabled style="cursor:not-allowed"' : '' ?>>Absen Pulang</a> </td>
                             <?php endif; ?>
                         </tr>
                     </tbody>
@@ -33,3 +29,18 @@
         </div>
     </div>
 </div>
+
+<!-- kode javascript untuk disable link -->
+<script>
+  function disableLinks() {
+    var links = document.getElementsByTagName("a");
+    for (var i = 0; i < links.length; i++) {
+      if (links[i].hasAttribute("disabled")) {
+        links[i].addEventListener("click", function(event) {
+          event.preventDefault();
+        });
+      }
+    }
+  }
+  window.onload = disableLinks;
+</script>
