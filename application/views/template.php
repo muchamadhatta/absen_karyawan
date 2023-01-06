@@ -25,7 +25,8 @@
 
 <body>
     <div class="wrapper">
-        <div class="sidebar" data-image="../assets/img/logo.png" data-color="blue">
+        <div class="sidebar" data-image="../assets/img/720x1440.jpg" data-color="green">
+        <!-- <div class="sidebar" data-image="../assets/img/720x1440.jpg" data-color="green"> -->
             <!--
                 Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
 
@@ -34,7 +35,7 @@
             <div class="sidebar-wrapper">
                 <div class="logo">
                     <a href="<?= base_url() ?>" class="simple-text">
-                        <img src="<?= base_url('assets/img/logo.png') ?>" width="50%" height="50%" alt="" class="img-fluid">
+                        <img src="<?= base_url('assets/img/logo.png') ?>" width="40%" height="40%" alt="" class="img-fluid">
                     </a>
                 </div>
                 <ul class="nav">
@@ -92,6 +93,8 @@
                                 </p>
                             </a>
                         </li>
+
+                        
                         <li class="nav-item <?= @$_active ?>">
                             <a class="nav-link" href="<?= base_url('absensi/detail_absensi') ?>">
                                 <i class="nc-icon nc-notes"></i>

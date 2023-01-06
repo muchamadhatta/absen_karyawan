@@ -75,11 +75,13 @@
                                 <?php
                                     $absen_harian = array_search($h['tgl'], array_column($absen, 'tgl')) !== false ? $absen[array_search($h['tgl'], array_column($absen, 'tgl'))] : '';
                                 ?>
-                                <tr <?= (in_array($h['hari'], ['Sabtu', 'Minggu'])) ? 'class="bg-dark text-white"' : '' ?> <?= ($absen_harian == '') ? 'class="bg-danger text-white"' : '' ?>>
+                                <tr <?= (in_array($h['hari'], ['Minggu'])) ? 'class="bg-dark text-white"' : '' ?> <?= ($absen_harian == '') ? 'class="bg-danger text-white"' : '' ?>>
                                     <td><?= ($i+1) ?></td>
                                     <td><?= $h['hari'] . ', ' . $h['tgl'] ?></td>
-                                    <td><?= is_weekend($h['tgl']) ? 'Libur Akhir Pekan' : check_jam(@$absen_harian['jam_masuk'], 'masuk') ?></td>
-                                    <td><?= is_weekend($h['tgl']) ? 'Libur Akhir Pekan' : check_jam(@$absen_harian['jam_pulang'], 'pulang') ?></td>
+                                    <td><?= is_array($absen_harian) ? (is_weekend($h['tgl']) ? 'Libur Akhir Pekan' : check_jam($absen_harian['jam_masuk'], 'masuk')) : $absen_harian ?></td>
+                                    
+                                    <td><?= is_array($absen_harian) ? (is_weekend($h['tgl']) ? 'Libur Akhir Pekan' : check_jam($absen_harian['jam_pulang'], 'pulang')) : $absen_harian ?></td>
+
                                 </tr>
                             <?php endforeach; ?>
                         <?php else: ?>

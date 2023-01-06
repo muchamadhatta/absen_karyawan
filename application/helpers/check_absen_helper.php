@@ -66,7 +66,8 @@ function check_jam($jam, $status, $raw = false)
 function is_weekend($tgl = false)
 {
     $tgl = @$tgl ? $tgl : date('d-m-Y');
-    return in_array(date('l', strtotime($tgl)), ['Saturday', 'Sunday']);
+    return in_array(date('l', strtotime($tgl)), ['Sunday']); // mengambil hari minggu libur
+    //return in_array(date('l', strtotime($tgl)), ['Saturday', 'Sunday']);
 }
 
 /* End of File: d:\Ampps\www\project\absen-pegawai\application\helpers\check_absen_helper.php */
