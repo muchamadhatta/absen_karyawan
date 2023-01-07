@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 05, 2023 at 07:25 AM
+-- Generation Time: Jan 07, 2023 at 02:00 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -40,7 +40,7 @@ CREATE TABLE `absensi` (
 --
 
 INSERT INTO `absensi` (`id_absen`, `tgl`, `waktu`, `keterangan`, `id_user`) VALUES
-(20, '2023-01-05', '13:01:58', 'Masuk', 14);
+(56, '2023-01-06', '19:32:59', 'Masuk', 14);
 
 -- --------------------------------------------------------
 
@@ -59,7 +59,7 @@ CREATE TABLE `divisi` (
 
 INSERT INTO `divisi` (`id_divisi`, `nama_divisi`) VALUES
 (1, 'Marketing'),
-(2, 'IT '),
+(2, 'Produksi'),
 (3, 'Akuntan'),
 (4, 'Kebersihan');
 
@@ -81,8 +81,8 @@ CREATE TABLE `jam` (
 --
 
 INSERT INTO `jam` (`id_jam`, `start`, `finish`, `keterangan`) VALUES
-(1, '06:00:00', '12:00:00', 'Masuk'),
-(2, '16:00:00', '22:00:00', 'Pulang');
+(1, '07:00:00', '08:00:00', 'Masuk'),
+(2, '17:00:00', '18:00:00', 'Pulang');
 
 -- --------------------------------------------------------
 
@@ -108,12 +108,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `nik`, `nama`, `telp`, `email`, `foto`, `divisi`, `username`, `password`, `level`) VALUES
-(1, '', 'Muchamad Hatta', '081218114681', 'muchamadhatta96@mail.com', '1672893764.jpg', NULL, 'ata', '$2y$10$lg9dve.YrjN4Vh7nV5NaieS/d6wXYjCWXr7HXhlOhvAN7J1qI/gtS', 'Manager'),
+(1, '', 'Muchamad Hatta', '081218114681', 'muchamadhatta96@mail.com', '1672893764.jpg', NULL, 'ata', '$2y$10$/gda7Hvpr0JB0sBWY9EDrejBW0cMyvf.bFQfLyh4iDT8RB5iVU.Pi', 'Manager'),
 (8, '8931289124891', 'Manager 1', '', '', 'no-foto.png', NULL, 'manager_1', '$2y$10$XtMY01KEOd5I065s8Exs0OcQ373RvRNG1JznORr6TmmBNWnZ3vjjK', 'Manager'),
 (9, '1231231238900', 'Manager 2', '', '', 'no-foto.png', NULL, 'manager_2', '$2y$10$iJWUOXDznGEmxo.bqnhtmeFL51jN5130LfDlKg8VROfoEmlgC.cFW', 'Manager'),
 (10, '908121310291', 'Manager 3', '', '', 'no-foto.png', NULL, 'manager_3', '$2y$10$uGsLvgl.6ji2iZ7tWkNvPelTwZdLQ6QA81Yawa20wsLairCXqV8BO', 'Manager'),
 (11, '123801204012', 'Manager 4', '', '', 'no-foto.png', NULL, 'master_4', '$2y$10$Kot81WNqrho4WlcYI13kT.Y5V2sMg1ZSAXcITrp8cj3dqHpbl4vrS', 'Manager'),
-(14, '', 'arif', '45435345', 'arif@gmail.com', 'no-foto.png', NULL, 'arif', '$2y$10$r16ywQjxO8mZL13duTuLI.vT/MbS32riVTWg6daniVzzAb9PGJnVq', 'Karyawan');
+(14, '', 'Muhammad Arief Ramdhani', '081454555115', 'arif@gmail.com', '1672998834.jpg', NULL, 'arif', '$2y$10$r16ywQjxO8mZL13duTuLI.vT/MbS32riVTWg6daniVzzAb9PGJnVq', 'Karyawan');
 
 --
 -- Indexes for dumped tables
@@ -151,7 +151,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `absensi`
 --
 ALTER TABLE `absensi`
-  MODIFY `id_absen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_absen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `divisi`

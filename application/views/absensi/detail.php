@@ -48,7 +48,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 ml-auto text-right mb-2">
                         <div class="dropdown d-inline">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="droprop-action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button disabled class="btn btn-secondary dropdown-toggle" type="button" id="droprop-action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fa fa-print"></i>
                                 Export Laporan
                             </button>
