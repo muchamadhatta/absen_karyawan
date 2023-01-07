@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 07, 2023 at 02:00 AM
+-- Generation Time: Jan 07, 2023 at 02:26 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -34,13 +34,6 @@ CREATE TABLE `absensi` (
   `keterangan` enum('Masuk','Pulang') NOT NULL,
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `absensi`
---
-
-INSERT INTO `absensi` (`id_absen`, `tgl`, `waktu`, `keterangan`, `id_user`) VALUES
-(56, '2023-01-06', '19:32:59', 'Masuk', 14);
 
 -- --------------------------------------------------------
 
@@ -109,11 +102,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id_user`, `nik`, `nama`, `telp`, `email`, `foto`, `divisi`, `username`, `password`, `level`) VALUES
 (1, '', 'Muchamad Hatta', '081218114681', 'muchamadhatta96@mail.com', '1672893764.jpg', NULL, 'ata', '$2y$10$/gda7Hvpr0JB0sBWY9EDrejBW0cMyvf.bFQfLyh4iDT8RB5iVU.Pi', 'Manager'),
-(8, '8931289124891', 'Manager 1', '', '', 'no-foto.png', NULL, 'manager_1', '$2y$10$XtMY01KEOd5I065s8Exs0OcQ373RvRNG1JznORr6TmmBNWnZ3vjjK', 'Manager'),
-(9, '1231231238900', 'Manager 2', '', '', 'no-foto.png', NULL, 'manager_2', '$2y$10$iJWUOXDznGEmxo.bqnhtmeFL51jN5130LfDlKg8VROfoEmlgC.cFW', 'Manager'),
-(10, '908121310291', 'Manager 3', '', '', 'no-foto.png', NULL, 'manager_3', '$2y$10$uGsLvgl.6ji2iZ7tWkNvPelTwZdLQ6QA81Yawa20wsLairCXqV8BO', 'Manager'),
-(11, '123801204012', 'Manager 4', '', '', 'no-foto.png', NULL, 'master_4', '$2y$10$Kot81WNqrho4WlcYI13kT.Y5V2sMg1ZSAXcITrp8cj3dqHpbl4vrS', 'Manager'),
-(14, '', 'Muhammad Arief Ramdhani', '081454555115', 'arif@gmail.com', '1672998834.jpg', NULL, 'arif', '$2y$10$r16ywQjxO8mZL13duTuLI.vT/MbS32riVTWg6daniVzzAb9PGJnVq', 'Karyawan');
+(14, '34234234322343', 'Muhammad Arief Ramdhani', '081454555115', 'arif@gmail.com', '1672998834.jpg', NULL, 'arif', '$2y$10$YhMiP78JadjcYnK3I9/iLerJYbp407mcMHyV3y/OBnTrVL/MgJ.e6', 'Karyawan'),
+(15, '32423423423423', 'dulung', '043534543554', 'dulung@gmail.com', 'no-foto.png', NULL, 'dulung', '$2y$10$7dJphsigRahAAnZ8qpOMce/cc2bjqoGuHUAdL6Jz3VEipbjcQzfDO', 'Karyawan'),
+(16, '534534534535', 'demo', '08324234235', 'demo@gmail.com', 'no-foto.png', 2, 'demo', '$2y$10$WQrcxcITGK.o.Bgniu5f0uFp6uAXtFqlsjV7p6XdJ8cbi3Lv5oduC', 'Karyawan');
 
 --
 -- Indexes for dumped tables
@@ -169,7 +160,7 @@ ALTER TABLE `jam`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` smallint(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_user` smallint(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
