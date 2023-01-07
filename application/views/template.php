@@ -149,6 +149,7 @@
             </footer>
         </div>
     </div>
+    
 </body>
 
 <!--   Core JS Files   -->
@@ -197,4 +198,18 @@
     <?php endif; ?>
 </script>
 
+
+<!-- bikin fullscreen -->
+<script>
+      
+
+
+
+      if ("fullscreenEnabled" in document || "webkitFullscreenEnabled" in document || "mozFullScreenEnabled" in document || "msFullscreenEnabled" in document) {
+  console.log("Fullscreen is supported");
+} else {
+  console.log("Fullscreen is not supported");
+}
+
+    </script>
 </html>
