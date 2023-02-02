@@ -6,13 +6,14 @@
     <!-- <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.ico"> -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+        name='viewport' />
     <title>Absensi Wooden Cap</title>
 
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link href="<?= base_url('assets/vendor/font-awesome/css/font-awesome.min.css') ?>" rel="stylesheet" />
-    
+
     <!-- CSS Files -->
     <link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet" />
     <link href="<?= base_url('assets/css/light-bootstrap-dashboard.css?v=2.0.1') ?>" rel="stylesheet" />
@@ -25,8 +26,8 @@
 
 <body>
     <div class="wrapper">
-        <div class="sidebar" data-image="../assets/img/720x1440.jpg" data-color="green">
-        <!-- <div class="sidebar" data-image="../assets/img/720x1440.jpg" data-color="green"> -->
+        <div class="sidebar" data-image="../assets/img/720x1440.jpg" data-color="blue">
+            <!-- <div class="sidebar" data-image="../assets/img/720x1440.jpg" data-color="green"> -->
             <!--
                 Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
 
@@ -35,67 +36,89 @@
             <div class="sidebar-wrapper">
                 <div class="logo">
                     <a href="<?= base_url() ?>" class="simple-text">
-                        <img src="<?= base_url('assets/img/logo.png') ?>" width="40%" height="40%" alt="" class="img-fluid">
+                        <img src="<?= base_url('assets/img/logo.png') ?>" width="40%" height="40%" alt=""
+                            class="img-fluid">
                     </a>
                 </div>
                 <ul class="nav">
                     <li class="nav-item">
                         <a class="nav-link text-white">
-                            <h2 class="my-0 text-center"><label id="hours"><?= date('H') ?></label>:<label id="minutes"><?= date('i') ?></label>:<label id="seconds"><?= date('s') ?></label></h2>
+                            <h2 class="my-0 text-center"><label id="hours">
+                                    <?= date('H') ?>
+                                </label>:<label id="minutes">
+                                    <?= date('i') ?>
+                                </label>:<label id="seconds">
+                                    <?= date('s') ?>
+                                </label></h2>
                         </a>
                     </li>
-                    <li class="nav-item <?= @$_active ?>">
+                    <li class="nav-item <?=@$_active ?>">
                         <a class="nav-link" href="<?= base_url() ?>">
                             <i class="nc-icon nc-chart-pie-35"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li class="nav-item <?= @$_active ?>">
+
+                    <?php if ($this->fungsi->user_login()->level == 'Karyawan') { ?>
+                        <li class="nav-item">
+                            <a href="<?= site_url('dashboard') ?>" <?= $this->uri->segment(1) == 'dashboard' || $this->uri->segment(1) == "" ? 'class="nav-link active"' : 'class="nav-link"' ?>>
+                                <i class="nav-icon fas fa-balance-scale"></i>
+                                <p>Dashboard</p>
+                            </a>
+                        </li>
+                    <?php } ?>
+
+
+
+
+
+                    <li class="nav-item <?=@$_active ?>">
                         <a class="nav-link" href="<?= base_url('user') ?>">
                             <i class="nc-icon nc-circle-09"></i>
                             <p>Profil</p>
                         </a>
                     </li>
-                    <?php if(is_level('Manager')): ?>
-                        <li class="nav-item <?= @$_active ?>">
+                    <?php if (is_level('Manager')): ?>
+                        <li class="nav-item <?=@$_active ?>">
                             <a class="nav-link" href="<?= base_url('jam') ?>">
                                 <i class="nc-icon nc-time-alarm"></i>
                                 <p>Jam Kerja</p>
                             </a>
                         </li>
-                        <li class="nav-item <?= @$_active ?>">
+                        <li class="nav-item <?=@$_active ?>">
                             <a class="nav-link" href="<?= base_url('divisi') ?>">
                                 <i class="nc-icon nc-bag"></i>
                                 <p>Divisi</p>
                             </a>
                         </li>
-                        <li class="nav-item <?= @$_active ?>">
+                        <li class="nav-item <?=@$_active ?>">
                             <a class="nav-link" href="<?= base_url('karyawan') ?>">
                                 <i class="nc-icon nc-circle-09"></i>
                                 <p>Karyawan</p>
                             </a>
                         </li>
-                        <li class="nav-item <?= @$_active ?>">
+                        <li class="nav-item <?=@$_active ?>">
                             <a class="nav-link" href="<?= base_url('absensi') ?>">
                                 <i class="nc-icon nc-notes"></i>
                                 <p>Absensi</p>
                             </a>
                         </li>
                     <?php else: ?>
-                        <li class="nav-item <?= @$_active ?>">
+                        <li class="nav-item <?=@$_active ?>">
                             <a class="nav-link" href="<?= base_url('absensi/check_absen') ?>">
                                 <i class="nc-icon nc-tag-content"></i>
                                 <p class="d-inline">
                                     Absen
-                                    <?php if($this->session->absen_warning == 'true'): ?>
-                                        <span class="float-right ml-auto notification p-0 badge badge-danger"><i class="fa fa-exclamation"></i></span>
+                                    <?php if ($this->session->absen_warning == 'true'): ?>
+                                        <span class="float-right ml-auto notification p-0 badge badge-danger"><i
+                                                class="fa fa-exclamation"></i></span>
                                     <?php endif; ?>
                                 </p>
                             </a>
                         </li>
 
-                        
-                        <li class="nav-item <?= @$_active ?>">
+
+                        <li class="nav-item <?=@$_active ?>">
                             <a class="nav-link" href="<?= base_url('absensi/detail_absensi') ?>">
                                 <i class="nc-icon nc-notes"></i>
                                 <p>Absensi Ku</p>
@@ -115,7 +138,8 @@
             <nav class="navbar navbar-expand-lg " color-on-scroll="500">
                 <div class=" container-fluid">
                     <a class="navbar-brand" href="#pablo"> Absensi </a>
-                    <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                    <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                        aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar burger-lines"></span>
                         <span class="navbar-toggler-bar burger-lines"></span>
                         <span class="navbar-toggler-bar burger-lines"></span>
@@ -126,12 +150,15 @@
             <div class="content">
                 <div class="container-fluid">
                     <div id="alert">
-                        <?php if(@$this->session->response): ?>
-                            <div class="alert alert-<?= $this->session->response['status'] == 'error' ? 'danger' : $this->session->response['status'] ?> alert-dismissable fade show" role="alert">
+                        <?php if (@$this->session->response): ?>
+                            <div class="alert alert-<?= $this->session->response['status'] == 'error' ? 'danger' : $this->session->response['status'] ?> alert-dismissable fade show"
+                                role="alert">
                                 <button class="close" aria-dismissable="alert">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-                                <p><?= $this->session->response['message'] ?></p>
+                                <p>
+                                    <?= $this->session->response['message'] ?>
+                                </p>
                             </div>
                         <?php endif; ?>
                     </div>
@@ -149,7 +176,7 @@
             </footer>
         </div>
     </div>
-    
+
 </body>
 
 <!--   Core JS Files   -->
@@ -192,24 +219,25 @@
         }
     }
 
-    <?php if(@$this->session->absen_needed): ?>
+    <?php if (@$this->session->absen_needed): ?>
         var absenNeeded = '<?= json_encode($this->session->absen_needed) ?>';
-        <?php $this->session->sess_unset('absen_needed') ?>
+            <?php $this->session->sess_unset('absen_needed') ?>
     <?php endif; ?>
 </script>
 
 
 <!-- bikin fullscreen -->
 <script>
-      
 
 
 
-      if ("fullscreenEnabled" in document || "webkitFullscreenEnabled" in document || "mozFullScreenEnabled" in document || "msFullscreenEnabled" in document) {
-  console.log("Fullscreen is supported");
-} else {
-  console.log("Fullscreen is not supported");
-}
 
-    </script>
+    if ("fullscreenEnabled" in document || "webkitFullscreenEnabled" in document || "mozFullScreenEnabled" in document || "msFullscreenEnabled" in document) {
+        console.log("Fullscreen is supported");
+    } else {
+        console.log("Fullscreen is not supported");
+    }
+
+</script>
+
 </html>

@@ -1,0 +1,52 @@
+version: '3'
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: ./docker-config/nginx/web.dockerfile 
+    container_name: inventory-webserver
+    volumes:
+      - ./:/var/www/public
+    ports:
+      - "8080:80"
+    networks:
+      - app-network
+  
+  app:
+    build:
+      context: ./
+      dockerfile: ./docker-config/php/php.dockerfile
+    container_name: inventory
+    volumes:
+      - ./:/var/www/public
+    networks:
+      - app-network
+    links:
+      - database
+    depends_on:
+      - database
+
+  database:
+    image: mariadb
+    container_name: inventory_database
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_DATABASE: inventory_sample
+      MYSQL_ROOT_PASSWORD: 12345
+      SERVICE_NAME: mysql
+      SERVICE_TAGS: dev
+    volumes:
+      - dbdata:/var/lib/mysql/
+      - ./docker-config/mysql/db:/docker-entrypoint-initdb.d
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+volumes:
+  dbdata:
+    driver: local
