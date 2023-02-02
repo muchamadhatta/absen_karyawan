@@ -58,20 +58,6 @@
                             <p>Dashboard</p>
                         </a>
                     </li>
-
-                    <?php if ($this->fungsi->user_login()->level == 'Karyawan') { ?>
-                        <li class="nav-item">
-                            <a href="<?= site_url('dashboard') ?>" <?= $this->uri->segment(1) == 'dashboard' || $this->uri->segment(1) == "" ? 'class="nav-link active"' : 'class="nav-link"' ?>>
-                                <i class="nav-icon fas fa-balance-scale"></i>
-                                <p>Dashboard</p>
-                            </a>
-                        </li>
-                    <?php } ?>
-
-
-
-
-
                     <li class="nav-item <?=@$_active ?>">
                         <a class="nav-link" href="<?= base_url('user') ?>">
                             <i class="nc-icon nc-circle-09"></i>
@@ -221,7 +207,7 @@
 
     <?php if (@$this->session->absen_needed): ?>
         var absenNeeded = '<?= json_encode($this->session->absen_needed) ?>';
-            <?php $this->session->sess_unset('absen_needed') ?>
+                <?php $this->session->sess_unset('absen_needed') ?>
     <?php endif; ?>
 </script>
 
